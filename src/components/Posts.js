@@ -9,7 +9,8 @@ const Posts = () => {
       .then((data) => setPosts(data));
   });
   return (
-    <div>
+    <div className="my-20">
+      <p className="my-10 text-6xl font-bold">ALL POSTS</p>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
         {posts.map((post) => (
           <div className="sm:mx-auto" key={post.id}>
@@ -21,7 +22,9 @@ const Posts = () => {
                 <p>{post.body.slice(0, 30)} . . .</p>
                 <Link to={`/post/${post.id}`}>
                   <div className="card-actions justify-center">
-                    <button className="btn  btn-primary">Details</button>
+                    <button className="btn btn-accent text-white font-bold">
+                      Details
+                    </button>
                   </div>
                 </Link>
               </div>

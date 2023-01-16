@@ -14,9 +14,9 @@ const Header = () => {
           <a className="font-semibold">About</a>
         </li>
       </Link>
-      <Link to="/">
+      <Link to="/profile">
         <li>
-          <a className="font-semibold">Home</a>
+          <a className="font-semibold">Profile</a>
         </li>
       </Link>
     </>
@@ -49,7 +49,11 @@ const Header = () => {
               {menuItem}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl font-bold">LMS 0NE</a>
+          <Link to="/">
+            <a className="btn btn-ghost normal-case text-xl font-bold">
+              LMS 0NE
+            </a>
+          </Link>
         </div>
         <div className="navbar-center hidden ml-auto lg:flex">
           <ul className="menu menu-horizontal px-1">{menuItem}</ul>
