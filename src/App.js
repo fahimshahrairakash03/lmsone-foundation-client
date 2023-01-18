@@ -25,13 +25,12 @@ function App() {
         {
           path: "/post",
           element: <Posts></Posts>,
-          loader: () => fetch("https://jsonplaceholder.typicode.com/posts"),
         },
         {
-          path: "/post/:id",
+          path: "/user/:id",
           element: <PostDetails></PostDetails>,
           loader: ({ params }) =>
-            fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`),
+            fetch(`https://dummyjson.com/users/${params.id}`),
         },
         {
           path: "/profile",

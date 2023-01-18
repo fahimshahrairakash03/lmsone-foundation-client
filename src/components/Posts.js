@@ -2,29 +2,31 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Posts = () => {
-  const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("https://dummyjson.com/users")
       .then((res) => res.json())
-      .then((data) => setPosts(data));
+      .then((data) => setUsers(data.users));
   });
+  console.log(users);
   return (
     <div className="my-20">
-      <p className="my-10 text-6xl font-bold">ALL POSTS</p>
+      <p className="my-10 text-6xl font-bold">ALL USERS</p>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
-        {posts.map((post) => (
-          <div className="sm:mx-auto" key={post.id}>
+        {users.map((user) => (
+          <div className="sm:mx-auto" key={user.id}>
             <div className="card w-96 bg-base-100 shadow-xl">
+              <figure>
+                <img src={user.image} alt="Shoes" />
+              </figure>
               <div className="card-body">
-                <h2 className="text-2xl font-bold text-center">
-                  {post.title.slice(0, 15)} . . .
+                <h2 className="text-2xl font-bold">
+                  {user.firstName} {user.lastName}
                 </h2>
-                <p>{post.body.slice(0, 30)} . . .</p>
-                <Link to={`/post/${post.id}`}>
-                  <div className="card-actions justify-center">
-                    <button className="btn btn-accent text-white font-bold">
-                      Details
-                    </button>
+                <p>Address: {user.address.address}</p>
+                <Link to={`/user/${user.id}`}>
+                  <div className="card-actions justify-end">
+                    <button className="btn btn-accent mx-auto"> Details</button>
                   </div>
                 </Link>
               </div>
